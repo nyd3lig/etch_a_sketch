@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch a sketch project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="button">New Grid</button>
+    <div id="container">
+
+    </div>
+</body>
+<!--START OF SCRIPT-->
+<script>
+    let grid
+    let container = document.getElementById("container");
+    let button = document.getElementById("button")
+    button.addEventListener("click", () => {
+        removeAllChildNodes(container);
+
+        let gridSize = prompt("How big do you want the grid?");
+        let entireGrid = gridSize *= gridSize;
+        console.log(gridSize);
+        for (let i = 0; i < entireGrid; i++){
+        grid = document.createElement("div");
+        grid.className = "grid";
+        grid.addEventListener("mouseover", () => event.currentTarget.classList.add("blackColor"));
+        document.getElementById("container").appendChild(grid);
+        }
+            
+    })
+
+    
+    
+    for (let i = 0; i < 256; i++) {
+        grid = document.createElement("div");
+        grid.className = "grid";
+        grid.addEventListener("mouseover", () => event.currentTarget.classList.add("blackColor"));
+        document.getElementById("container").appendChild(grid);
+        }
+
+        function removeAllChildNodes(parent) {
+            while (parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+            }
+        }
+        
+           
+        
+        
+       
+    
+    
+
+</script>
+</html>

@@ -1,4 +1,5 @@
 # etch_a_sketch
+LIVE: https://nyd3lig.github.io/etch_a_sketch/
 This is a project assigned by The Odin Project curriculum - https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project
 
 Which uses recent information gathered about the DOM and Event-listeners.

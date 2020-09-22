@@ -15,13 +15,16 @@
 <script>
     let grid
     let container = document.getElementById("container");
-    let button = document.getElementById("button")
+    let button = document.getElementById("button");
+    
     button.addEventListener("click", () => {
-        removeAllChildNodes(container);
+        removeGrid(container);
+       
+        let gridSizeNumber = prompt("How big do you want the grid?");
+        container.style.gridTemplateColumns = `repeat(${gridSizeNumber}, 1fr)`;
 
-        let gridSize = prompt("How big do you want the grid?");
-        let entireGrid = gridSize *= gridSize;
-        console.log(gridSize);
+        let entireGrid = gridSizeNumber *= gridSizeNumber;
+        
         for (let i = 0; i < entireGrid; i++){
         grid = document.createElement("div");
         grid.className = "grid";
@@ -40,7 +43,7 @@
         document.getElementById("container").appendChild(grid);
         }
 
-        function removeAllChildNodes(parent) {
+        function removeGrid(parent) {
             while (parent.firstChild) {
                 parent.removeChild(parent.firstChild);
             }

@@ -8,7 +8,6 @@
 <body>
     <button id="button">New Grid</button>
     <div id="container">
-
     </div>
 </body>
 <!--START OF SCRIPT-->
@@ -17,35 +16,36 @@
     let container = document.getElementById("container");
     let button = document.getElementById("button");
     
+    //Invokes function to create divs for a 16x16 grid;
+    divCreator(256);
+    /* Button function that removes the old grid, and spawns a new grid by prompting the user for a number, and using said number for css grid, 
+    then spawning all the divs needed for the entire grid */
     button.addEventListener("click", () => {
         removeGrid(container);
-       
+
         let gridSizeNumber = prompt("How big do you want the grid?");
         container.style.gridTemplateColumns = `repeat(${gridSizeNumber}, 1fr)`;
 
         let entireGrid = gridSizeNumber *= gridSizeNumber;
-        
-        for (let i = 0; i < entireGrid; i++){
-        grid = document.createElement("div");
-        grid.className = "grid";
-        grid.addEventListener("mouseover", () => event.currentTarget.classList.add("blackColor"));
-        document.getElementById("container").appendChild(grid);
-        }
+        divCreator(entireGrid);
             
     })
 
     
-    
-    for (let i = 0; i < 256; i++) {
+    // Creates divs for the grid
+    function divCreator (value) {
+    for (let i = 0; i < value; i++) {
         grid = document.createElement("div");
         grid.className = "grid";
         grid.addEventListener("mouseover", () => event.currentTarget.classList.add("blackColor"));
         document.getElementById("container").appendChild(grid);
         }
-
-        function removeGrid(parent) {
-            while (parent.firstChild) {
-                parent.removeChild(parent.firstChild);
+    }
+        
+    // Checks if parent has a child, if it has a child removes said child
+    function removeGrid(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
             }
         }
         
